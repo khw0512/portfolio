@@ -32,6 +32,24 @@
                 emailjs.init('PJHDiEwY0iPEa4TRY');
             })();
         </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // generate a five digit number for the contact_number variable
+                    this.contact_number.value = Math.random() * 100000 | 0;
+                    // these IDs from the previous steps
+                    emailjs.sendForm('jason-portfolio', 'template_hjx1a84', this)
+                        .then(function() {
+                            console.log('SUCCESS!');
+                            alert('이메일이 성공적으로 발송되었습니다 :)');
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            alert('이메일 발송을 실패하였습니다 :( )');
+                        });
+                });
+            }
+        </script>
     </head>
 
     <body class="one-page"> 
@@ -447,25 +465,25 @@
                     </a>
 
                     <div class="content-670">
-                        <div class="contact-form">
+                        <form id="contact-form">
+                            <input type="hidden" name="contact_number">
                             <p>
-                                <input id="name" type="text" name="your-name" placeholder="NAME">
+                                <input id="name" type="text" name="user_name" placeholder="NAME">
                             </p>
                             <p>
-                                <input id="email_id" type="email" name="your-email" placeholder="EMAIL">
+                                <input id="email_id" type="email" name="user_email" placeholder="EMAIL">
                             </p>                                    
                             <p>
-                                <input id="subject" type="text" name="your-subject" placeholder="SUBJECT">
+                                <input id="subject" type="text" name="subject" placeholder="SUBJECT">
                             </p>
                             <p>
-                                <textarea id="message" name="your-message" placeholder="MESSAGE"></textarea>
+                                <textarea id="message" name="message" placeholder="MESSAGE"></textarea>
                             </p>
                             <p class="contact-submit-holder">
-                                <input type="submit" name="con_submit" value="이메일 보내기">
+                                <input type="submit" name="submit" value="이메일 보내기">
                             </p>                                
                         </div> 
                     </div>
-
                 </section>
                 <!-- ================== ABOUT END ================== -->
             </div>
@@ -481,19 +499,5 @@
         <script src="js/jquery.prettyPhoto.js"></script>                
         <script src='js/owl.carousel.min.js'></script>                                                            
         <script src="js/main.js"></script>
-        <script>
-            function sendMail(){
-                var params = {
-                    from_name : document.getElementById("name").value,
-                    email_id: document.getElementById("email_id").value, 
-                    message: document.getElementById("message").value,
-                    to_name: "Hyunwoo"
-                };
-        
-                emailjs.send("jason-portfolio", "template_hjx1a84", params).then(function (res) {
-                    alert("Sucess! " + res.status);
-                })
-            }
-        </script>
     </body>
 </html>
