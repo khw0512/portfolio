@@ -302,6 +302,7 @@
                     data: params,
                     success: function (response) {
                         if (response) {
+                            print(response)
                             var responseObj = $.parseJSON(response);
                             if (responseObj.ResponseData)
                             {
