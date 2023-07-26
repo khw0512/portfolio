@@ -24,6 +24,14 @@
             <script src="js/html5shiv.js"></script>            
             <script src="js/respond.min.js"></script>                   
         <![endif]-->                
+        <!--email-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init('PJHDiEwY0iPEa4TRY');
+            })();
+        </script>
     </head>
 
     <body class="one-page"> 
@@ -444,7 +452,7 @@
                                 <input id="name" type="text" name="your-name" placeholder="NAME">
                             </p>
                             <p>
-                                <input id="contact-email" type="email" name="your-email" placeholder="EMAIL">
+                                <input id="email_id" type="email" name="your-email" placeholder="EMAIL">
                             </p>                                    
                             <p>
                                 <input id="subject" type="text" name="your-subject" placeholder="SUBJECT">
@@ -473,5 +481,19 @@
         <script src="js/jquery.prettyPhoto.js"></script>                
         <script src='js/owl.carousel.min.js'></script>                                                            
         <script src="js/main.js"></script>
+        <script>
+            function sendMail(){
+                var params = {
+                    from_name : document.getElementById("name").value,
+                    email_id: document.getElementById("email_id").value, 
+                    message: document.getElementById("message").value,
+                    to_name: "Hyunwoo"
+                };
+        
+                emailjs.send("jason-portfolio", "template_hjx1a84", params).then(function (res) {
+                    alert("Sucess! " + res.status);
+                })
+            }
+        </script>
     </body>
 </html>
