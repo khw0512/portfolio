@@ -541,7 +541,7 @@ img.block-right {
     font-weight: 500;
     font-size: 22px;
     line-height: 33px;
-    letter-spacing: 0.27em;
+    letter-spacing: 0.1em;
     margin-top: 30px;
     transition: .35s ease-out;
 }
@@ -572,6 +572,10 @@ img.block-right {
     font-weight: 900;
     margin-right: 10px;
     color:rebeccapurple;
+}
+
+.serv-i{
+    font-size:50px;
 }
 
 /* ===================================
