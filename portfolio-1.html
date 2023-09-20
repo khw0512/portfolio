@@ -1,121 +1,200 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <title>Ukko - Personal Portfolio HTML Template</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Template by CocoBasic" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
-        <meta name="author" content="CocoBasic" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>김현우 PM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Template by CocoBasic" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+    <meta name="author" content="CocoBasic" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-        <link rel="shortcut icon" href="images/favicon.ico">
-        <link href='https://fonts.googleapis.com/css?family=Poppins:200,400,500,700,800&display=swap' rel='stylesheet' type='text/css'>                     
-        <link rel="stylesheet" href="css/clear.css">
-        <link rel="stylesheet" href="css/bootstrap-grid.css">        
-        <link rel="stylesheet" href="css/prettyPhoto.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favi-hw.svg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200,400,500,700,800&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/clear.css" />
+    <link rel="stylesheet" href="css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="css/prettyPhoto.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="style.css" />
 
-        <!--[if lt IE 9]>
-            <script src="js/html5shiv.js"></script>            
-            <script src="js/respond.min.js"></script>                   
-        <![endif]-->     
-        <!--fontawesome-->
-        <script src="https://kit.fontawesome.com/c7371d52f4.js" crossorigin="anonymous"></script>           
-    </head>
+    <!--fontawesome-->
+    <script
+      src="https://kit.fontawesome.com/c7371d52f4.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <body class="single-portfolio single"> 
+    <!--Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
 
-        <div class="doc-loader"></div>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!--email-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init("PJHDiEwY0iPEa4TRY");
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = (Math.random() * 100000) | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm("jason-portfolio", "template_hjx1a84", this).then(
+              function () {
+                console.log("SUCCESS!");
+                alert("이메일이 성공적으로 발송되었습니다 :)");
+              },
+              function (error) {
+                console.log("FAILED...", error);
+                alert("이메일 발송을 실패하였습니다 :( )");
+              }
+            );
+          });
+      };
+    </script>
+  </head>
 
-        <div class="container">
-            <div class="page-wrapper">
+  <body class="one-page">
+    <div class="doc-loader"></div>
 
-                <!-- ================= HEADER ================= -->
-                <div id="nav-btn" class="nav-btn">
-                    <span class="nav-btn-cover">
-                        <span class="menu-line"></span>                   
-                    </span>
-                </div>
-                <div class="s-nav">
-                    <div class="nav-count">
-                        <div class="current-num">
-                            <span>01</span>
-                        </div>
-                        <div class="pagination-sep">/</div>
-                        <div class="total-pages-num">01</div>
-                    </div>                                                            
-                    <div class="nav-container">
-                        <a class="site-title slow-scroll" href="index.html#home">김현우</a>
-                        <nav class="nav-menu">  
-                            <ul class="nav-list">
-                                <li><a href="index.html#home">Home</a></li>
-                                <li><a href="index.html#services">Services</a></li>
-                                <li><a href="index.html#about">About Me</a></li>
-                                <li><a href="index.html#portfolio">Portfolio</a></li>                                                                        
-                                <li><a href="index.html#blog">Blog</a></li>
-                                <li><a href="index.html#skills">Skills</a></li>
-                                <li><a href="index.html#contact">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!--
+    <div class="container">
+      <div class="page-wrapper">
+        <!-- ================= HEADER ================= -->
+        <div id="nav-btn" class="nav-btn">
+          <span class="nav-btn-cover">
+            <span class="menu-line"></span>
+          </span>
+        </div>
+        <div class="s-nav">
+          <div class="nav-count">
+            <div class="current-num">
+              <span>01</span>
+            </div>
+            <div class="pagination-sep">/</div>
+            <div class="total-pages-num">07</div>
+          </div>
+          <div class="nav-container">
+            <a class="site-title slow-scroll" href="#home">김현우</a>
+            <nav class="nav-menu">
+              <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">History</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!--
                     <ul class="nav-soc">
                         <li><a href="#">TW.</a></li>
                         <li><a href="#">IN.</a></li>
                         <li><a href="#">FB.</a></li>
                     </ul>
                     -->
+        </div>
+        <!-- =============== HEADER END =============== -->
+
+        <!-- ================== HOME ================== -->
+        <section id="home" class="section">
+          <div class="container-wrap">
+            <h1
+              style="margin-left: 10%"
+              class="entry-title"
+              data-jarallax-element="0 30"
+            >
+              김<br />현우
+            </h1>
+            <img
+              class="main-photo block-right"
+              data-jarallax-element="0 -30"
+              src="images/main12.jpeg"
+              alt=""
+            />
+            <a href="#services" class="main-btn slow-scroll"
+              ><img src="images/scroll-icon.svg" alt=""
+            /></a>
+          </div>
+        </section>
+        <!-- ================= HOME END ================= -->
+
+        <section class="section">
+          <div class="portfolio-item-wrapper">
+            <div class="portfolio-content">
+              <div class="image-slider-wrapper relative block-right">
+                <div
+                  class="owl-carousel owl-theme image-slider slider"
+                  data-speed="2000"
+                  data-auto="false"
+                  data-hover="true"
+                >
+                  <div class="owl-item">
+                    <img src="images/item1.jpg" alt="" />
+                  </div>
+                  <div class="owl-item">
+                    <img src="images/item2.jpg" alt="" />
+                  </div>
+                  <div class="owl-item">
+                    <img src="images/item3.jpg" alt="" />
+                  </div>
                 </div>
-                <!-- =============== HEADER END =============== -->
+              </div>
 
-                <section class="section">                    
-                    <div class="portfolio-item-wrapper">
-                        <div class="portfolio-content">                            
+              <h2 class="title">Qualtrics Technical Consulting</h2>
 
-                            <div class="image-slider-wrapper relative block-right">
-                                <div class="owl-carousel owl-theme image-slider slider" data-speed="2000" data-auto="false" data-hover="true">
-                                    <div class="owl-item">
-                                        <img src="images/item1.jpg" alt="">
-                                    </div>
-                                    <div class="owl-item">
-                                        <img src="images/item2.jpg" alt="">
-                                    </div>                              
-                                    <div class="owl-item">
-                                        <img src="images/item3.jpg" alt="">
-                                    </div>                               
-                                </div>                                                            
-                            </div>
+              <p class="section-des">
+                글로벌 경험관리 플랫폼인 퀄트릭스를 이용한 고객 또는 임직원 설문
+                조사 및 응답 분석
+              </p>
 
-                            <h2 class="title">Qualtrics Technical Consulting</h2>
+              <p class="content-670">
+                글로벌 경험관리 툴인 퀄트릭스를 이용하여 고객 또는 임직원 대상의
+                설문을 기획하고 배포, 수집 및 데이터 분석까지 진행하였습니다.
+                궁극적으로는 일련의 데이터 수집과 분석 과정을 고객 스스로
+                내재화할 수 있도록 컨설팅 및 교육까지 진행하였습니다.
+              </p>
+              <p class="content-670">
+                퀄트릭스의 Technical Consultant Certification을 취득하여
+                보유하고 있습니다.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 
-                            <p class="section-des">
-                                글로벌 경험관리 플랫폼인 퀄트릭스를 이용한 고객 또는 임직원 설문 조사 및 응답 분석
-                            </p>
-
-                            <p class="content-670">
-                                글로벌 경험관리 툴인 퀄트릭스를 이용하여 고객 또는 임직원 대상의 설문을 기획하고 배포, 수집 및 데이터 분석까지 진행하였습니다. 궁극적으로는 일련의 데이터 수집과 분석 과정을 고객 스스로 내재화할 수 있도록 컨설팅 및 교육까지 진행하였습니다.
-                            </p>
-                            <p class="content-670">
-                                퀄트릭스의 Technical Consultant Certification을 취득하여 보유하고 있습니다.
-                            </p>
-
-                        </div>                                    
-                    </div>                                                     
-                </section>                    
-            </div>        
-        </div>        
-
-        <!--=================== SCRIPT ===================-->
-        <script src="js/jquery.js"></script>       
-        <script src="js/imagesloaded.pkgd.js"></script>
-        <script src="js/jquery.fitvids.js"></script>
-        <script src="js/jarallax.js"></script>
-        <script src="js/jarallax-element.min.js"></script>
-        <script src="js/isotope.pkgd.js"></script>        
-        <script src="js/jquery.prettyPhoto.js"></script>                
-        <script src='js/owl.carousel.min.js'></script>                                                            
-        <script src="js/main.js"></script>
-    </body>
+    <!--=================== SCRIPT ===================-->
+    <script src="js/jquery.js"></script>
+    <script src="js/imagesloaded.pkgd.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/jarallax.js"></script>
+    <script src="js/jarallax-element.min.js"></script>
+    <script src="js/isotope.pkgd.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

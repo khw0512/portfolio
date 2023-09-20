@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="ko">
   <head>
-    <title>Ukko - Personal Portfolio HTML Template</title>
+    <title>김현우 PM</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="Template by CocoBasic" />
     <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
@@ -11,7 +11,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="images/favi-hw.svg" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:200,400,500,700,800&display=swap"
       rel="stylesheet"
@@ -24,18 +24,58 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="style.css" />
 
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
     <!--fontawesome-->
     <script
       src="https://kit.fontawesome.com/c7371d52f4.js"
       crossorigin="anonymous"
     ></script>
+
+    <!--Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!--email-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init("PJHDiEwY0iPEa4TRY");
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = (Math.random() * 100000) | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm("jason-portfolio", "template_hjx1a84", this).then(
+              function () {
+                console.log("SUCCESS!");
+                alert("이메일이 성공적으로 발송되었습니다 :)");
+              },
+              function (error) {
+                console.log("FAILED...", error);
+                alert("이메일 발송을 실패하였습니다 :( )");
+              }
+            );
+          });
+      };
+    </script>
   </head>
 
-  <body class="single-portfolio single">
+  <body class="one-page">
     <div class="doc-loader"></div>
 
     <div class="container">
@@ -52,21 +92,19 @@
               <span>01</span>
             </div>
             <div class="pagination-sep">/</div>
-            <div class="total-pages-num">01</div>
+            <div class="total-pages-num">07</div>
           </div>
           <div class="nav-container">
-            <a class="site-title slow-scroll" href="index.html#home"
-              >JACOB HAWKINS</a
-            >
+            <a class="site-title slow-scroll" href="#home">김현우</a>
             <nav class="nav-menu">
               <ul class="nav-list">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
-                <li><a href="index.html#blog">Blog</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">History</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -79,6 +117,29 @@
                     -->
         </div>
         <!-- =============== HEADER END =============== -->
+
+        <!-- ================== HOME ================== -->
+        <section id="home" class="section">
+          <div class="container-wrap">
+            <h1
+              style="margin-left: 10%"
+              class="entry-title"
+              data-jarallax-element="0 30"
+            >
+              김<br />현우
+            </h1>
+            <img
+              class="main-photo block-right"
+              data-jarallax-element="0 -30"
+              src="images/main12.jpeg"
+              alt=""
+            />
+            <a href="#services" class="main-btn slow-scroll"
+              ><img src="images/scroll-icon.svg" alt=""
+            /></a>
+          </div>
+        </section>
+        <!-- ================= HOME END ================= -->
 
         <section class="section">
           <div class="portfolio-item-wrapper">
